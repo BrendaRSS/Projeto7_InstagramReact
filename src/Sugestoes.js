@@ -16,6 +16,13 @@ function Sugestao(props) {
 }
 
 export default function Sugestoes() {
+    let listaSugestao = [
+        { imagem: "assets/img/bad.vibes.memes.svg", nome: "bad.vibes.memes", seguir: "Segue você" },
+        { imagem: "assets/img/chibirdart.svg", nome: "chibirdart", seguir: "Segue você" },
+        { imagem: "assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", seguir: "Novo no Instagram" },
+        { imagem: "assets/img/adorable_animals.svg", nome: "adorable_animals", seguir: "Segue você" },
+        { imagem: "assets/img/smallcutecats.svg", nome: "smallcutecats", seguir: "Segue você" }
+    ]
     return (
         <div class="sugestoes">
             <div class="titulo">
@@ -23,11 +30,10 @@ export default function Sugestoes() {
                 <div>Ver tudo</div>
             </div>
 
-            <Sugestao imagem="assets/img/bad.vibes.memes.svg" nome="bad.vibes.memes" seguir="Segue você" />
-            <Sugestao imagem="assets/img/chibirdart.svg" nome="chibirdart" seguir="Segue você" />
-            <Sugestao imagem="assets/img/razoesparaacreditar.svg" nome="razoesparaacreditar" seguir="Novo no Instagram" />
-            <Sugestao imagem="assets/img/adorable_animals.svg" nome="adorable_animals" seguir="Segue você" />
-            <Sugestao imagem="assets/img/smallcutecats.svg" nome="smallcutecats" seguir="Segue você" />
+            {listaSugestao.map((s) => (<Sugestao
+                imagem={s.imagem}
+                nome={s.nome}
+                seguir={s.seguir} />))}
         </div>
     )
 }

@@ -39,23 +39,34 @@ function Post(props) {
 }
 
 export default function Posts() {
+    let listaPost = [
+        {
+            imagem: "assets/img/meowed.svg",
+            nomeUsuario: "meowed",
+            imagemConteudo: "assets/img/gato-telefone.svg",
+            imagemCurtidas: "assets/img/respondeai.svg",
+            ultimaCurtida: "respondeai",
+            numeroCurtida: "101.523"
+        },
+        {
+            imagem: "assets/img/barked.svg",
+            nomeUsuario: "barked",
+            imagemConteudo: "assets/img/dog.svg",
+            imagemCurtidas: "assets/img/adorable_animals.svg",
+            ultimaCurtida: "adorable_animals",
+            numeroCurtida: "99.159"
+        }
+    ]
+
     return (
         <div class="posts">
-            <Post
-                imagem="assets/img/meowed.svg"
-                nomeUsuario="meowed"
-                imagemConteudo="assets/img/gato-telefone.svg"
-                imagemCurtidas="assets/img/respondeai.svg"
-                ultimaCurtida="respondeai"
-                numeroCurtida="101.523" />
-
-            <Post
-                imagem="assets/img/barked.svg"
-                nomeUsuario="barked"
-                imagemConteudo="assets/img/dog.svg"
-                imagemCurtidas="assets/img/adorable_animals.svg"
-                ultimaCurtida="adorable_animals"
-                numeroCurtida="99.159" />
+            {listaPost.map((p) => (<Post
+                imagem={p.imagem}
+                nomeUsuario={p.nomeUsuario}
+                imagemConteudo={p.imagemConteudo}
+                imagemCurtidas={p.imagemCurtidas}
+                ultimaCurtida={p.ultimaCurtida}
+                numeroCurtida={p.numeroCurtida} />))}
 
         </div>
     )
