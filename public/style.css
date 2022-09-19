@@ -199,6 +199,20 @@ body {
   display:none;
 }
 
+.espaco{
+  display: flex;
+}
+
+.espaco ion-icon{
+  margin-right: 6px;
+  color: red;
+}
+
+.black ion-icon{
+  margin-right: 6px;
+  color: black;
+}
+
 .post .fundo .curtidas {
   display: flex;
   align-items: center;

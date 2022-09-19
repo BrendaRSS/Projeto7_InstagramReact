@@ -2,6 +2,7 @@ import React from "react"
 
 function Post(props) {
     const [salvar, setSalvar] = React.useState(false)
+    const [curtir, setCurtir] = React.useState(false)
 
     return (
         <div class="post">
@@ -21,10 +22,17 @@ function Post(props) {
 
             <div class="fundo">
                 <div class="acoes">
-                    <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                    <div class={(curtir===false)?"":"none"}>
+                        <ion-icon name="heart-outline" onClick={()=>setCurtir(true)}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
+                    </div>
+                    <div class={(curtir===false)?"none":"espaco"}>
+                        <ion-icon name="heart" onClick={()=>setCurtir(false)}></ion-icon>
+                        <div class="black">
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                        </div>
                     </div>
                     <div class={(salvar === false) ? "" : "none"}>
                         <ion-icon name="bookmark-outline" onClick={() => setSalvar(true)}></ion-icon>
@@ -35,7 +43,7 @@ function Post(props) {
                 </div>
 
                 <div class="curtidas">
-                    <img src={props.imagemCurtidas} />
+                    <img onClick={()=>setCurtir(true)} src={props.imagemCurtidas} />
                     <div class="texto">
                         Curtido por <strong>{props.ultimaCurtida}</strong> e <strong>outras {props.numeroCurtida} pessoas</strong>
                     </div>
