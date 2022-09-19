@@ -1,35 +1,48 @@
 import React from "react"
 
-export default function Usuario() {
-    const [imagem, setImagem] = React.useState("assets/img/catanacomics.svg")
-    const [nickname, setNickname] = React.useState("catanacomics")
-    const [nome, setNome] = React.useState("Catana")
+function DadosUsuario(props) {
+    
+    function alteraNomeUsuario(){
+        let newNome= prompt("Digite seu nome")
+        props.setNomeUsuario(newNome)
+    }
+
+    function alteraNomeInstagram(){
+        let newNomeInstagram=prompt("Sigite seu nome")
+        props.setNomeInstagram(newNomeInstagram)
+    }
 
     function alteraImagem(){
-        let newImagem= prompt("Coloque o link da nova imagem")
-        setImagem(newImagem)
+        let newImagem=prompt("Coloque aqui p link da imagem")
+        props.setImagem(newImagem)
     }
-
-    function alteraNickname(){
-        let newNickname=prompt("Digite seu nickname")
-        setNickname(newNickname)
-    }
-
-    function alteraNome() {
-        let newNome = prompt("Digite seu nome")
-        setNome(newNome)
-    }
-
+   
     return (
         <div class="usuario">
-            <img onClick={alteraImagem} src={(imagem===""||imagem===null)? "https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg":imagem} />
+            <img onClick={alteraImagem} src={(props.imagem===""||props.imagem===null)?("https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg"):props.imagem} />
             <div class="texto">
-                <strong>{(nickname===""||nickname===null)?"@usuario":nickname} <ion-icon name="pencil" onClick={alteraNickname} ></ion-icon></strong>
+                <strong>{(props.nomeInstagram===""||props.nomeInstagram===null)?"@Usuário":props.nomeInstagram} <ion-icon name="pencil" onClick={alteraNomeInstagram} ></ion-icon></strong>
                 <span>
-                    {(nome=== ""||nome=== null)?"Nome não informado":nome}
-                    <ion-icon name="pencil" onClick={alteraNome} ></ion-icon>
+                    {(props.nomeUsuario===""||props.nomeUsuario===null)?"Nome não informado":props.nomeUsuario}
+                    <ion-icon name="pencil" onClick={alteraNomeUsuario} ></ion-icon>
                 </span>
             </div>
         </div>
+    )
+}
+
+export default function Usuario() {
+    const [nomeUsuario, setNomeUsuario]= React.useState("Catana")
+    const [nomeInstagram, setNomeInstagram]= React.useState("catanacomics")
+    const [imagem, setImagem]= React.useState("assets/img/catanacomics.svg")
+
+    return (
+            <DadosUsuario
+                imagem={imagem}
+                nomeInstagram= {nomeInstagram}
+                nomeUsuario={nomeUsuario} 
+                setNomeUsuario={setNomeUsuario}
+                setNomeInstagram={setNomeInstagram}
+                setImagem={setImagem}/>
     )
 }
