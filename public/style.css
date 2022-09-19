@@ -195,6 +195,10 @@ body {
   margin-right: 6px;
 }
 
+.none{
+  display:none;
+}
+
 .post .fundo .curtidas {
   display: flex;
   align-items: center;

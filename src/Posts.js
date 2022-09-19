@@ -1,4 +1,8 @@
+import React from "react"
+
 function Post(props) {
+    const [salvar, setSalvar] = React.useState(false)
+
     return (
         <div class="post">
             <div class="topo">
@@ -22,8 +26,11 @@ function Post(props) {
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
-                    <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                    <div class={(salvar === false) ? "" : "none"}>
+                        <ion-icon name="bookmark-outline" onClick={() => setSalvar(true)}></ion-icon>
+                    </div>
+                    <div class={(salvar === false) ? "none" : ""}>
+                        <ion-icon name="bookmark" onClick={()=> setSalvar(false)} ></ion-icon>
                     </div>
                 </div>
 
